@@ -1,9 +1,7 @@
 #!/bin/bash
 set -e
-# Unzip the project and build
-unzip -o workout-tracker.zip -d app
-cd app
+# Extract App.jsx from zip to src
+unzip -p workout-tracker.zip 'workout-tracker/src/App.jsx' > src/App.jsx
+# Install dependencies and build
 npm install
 npm run build
-# Copy the build output to the root 'dist' directory for Vercel
-cp -r dist ../dist
